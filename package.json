@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "matter-js": "^0.14.2",
+    "planck-js": "^0.2.5",
     "vue": "^2.5.17"
   },
   "devDependencies": {
