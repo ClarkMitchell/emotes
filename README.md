@@ -19,3 +19,7 @@ yarn run build
 ```
 yarn run lint
 ```
+
+Press `enter` to spawn an emoji.
+
+Press `delete` to clear the canvas.
