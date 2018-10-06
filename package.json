@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "fix": "sed -i 's@href=/@href=emotes/@g' dist/index.html"
+    "fix": "sed -i 's@href=/@href=/emotes/@g' dist/index.html"
   },
   "dependencies": {
     "matter-js": "^0.14.2",
