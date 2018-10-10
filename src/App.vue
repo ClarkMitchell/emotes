@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app"">
     <PhysicsCanvas/>
   </div>
 </template>
@@ -16,5 +16,11 @@ export default {
 </script>
 
 <style>
-
+  body {
+    background-image: url("static/img/camerajams.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
 </style>

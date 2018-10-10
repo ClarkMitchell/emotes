@@ -9,9 +9,10 @@ var render = Render.create({
     element: document.body,
     engine: engine,
     options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        background: 'black',
+        width: window.outerWidth,
+        height: window.outerHeight,
+        background: "transparent",
+        wireframeBackground: "transparent",
         showAngleIndicator: false,
         wireframes: false
     }
@@ -28,7 +29,7 @@ const offset = 10
 const options = {
     isStatic: true,
     render: {
-        fillStyle: 'black'
+        fillStyle: "transparent"
     }
 };
 
@@ -44,7 +45,7 @@ World.add(world, [
 ]);
 
 function getEmoji() {
-    const closeToCenter = window.innerWidth / 3 + Math.floor(Math.random() * 20);
+    const closeToCenter = window.outerWidth / 3 + Math.floor(Math.random() * 20);
     let body = Bodies.circle(closeToCenter, 0, 50, {
         render: {
             strokeStyle: '#ffffff',

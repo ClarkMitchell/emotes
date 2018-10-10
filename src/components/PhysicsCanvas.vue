@@ -4,10 +4,11 @@
 </template>
 
 <script>
-import Physics from '../physics.js'
+import '../physics.js'
 
-export default {};
+export default {}
 </script>
 
-<style scoped>
+<style>
+
 </style>
