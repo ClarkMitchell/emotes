@@ -18,10 +18,11 @@ export default {
 <style>
   body {
     background-image: url("static/img/camerajams.png");
+    background-size: contain;
     background-color: black;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center center;
     overflow:hidden;
   }
 </style>
