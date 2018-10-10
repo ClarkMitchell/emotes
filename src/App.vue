@@ -1,5 +1,5 @@
 <template>
-  <div id="app"">
+  <div id="app">
     <PhysicsCanvas/>
   </div>
 </template>
@@ -22,5 +22,6 @@ export default {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    overflow:hidden;
   }
 </style>
