@@ -1,5 +1,18 @@
 import { Engine, Body, Render, Runner, MouseConstraint, Mouse, World, Bodies } from "matter-js";
 
+const emotes = {
+   81: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/pile-of-poo_1f4a9.png',
+   87: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/face-with-tears-of-joy_1f602.png',
+   69: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png',
+   82: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/winking-face_1f609.png',
+   84: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/face-savouring-delicious-food_1f60b.png',
+   89: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/smiling-face-with-sunglasses_1f60e.png',
+   85: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/smiling-face-with-heart-shaped-eyes_1f60d.png',
+   73: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/thinking-face_1f914.png',
+   79: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/zipper-mouth-face_1f910.png',
+   80: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/confused-face_1f615.png'
+}
+
 // create engine
 var engine = Engine.create(),
     world = engine.world;
@@ -44,13 +57,13 @@ World.add(world, [
     Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)
 ]);
 
-function getEmoji() {
+function getEmoji(url) {
     const closeToCenter = window.outerWidth / 3 + Math.floor(Math.random() * 20);
     let body = Bodies.circle(closeToCenter, 0, 50, {
         render: {
             strokeStyle: '#ffffff',
             sprite: {
-                texture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Noto_Emoji_KitKat_263a.svg/128px-Noto_Emoji_KitKat_263a.svg.png'
+                texture: url
             }
         }
     });
@@ -64,12 +77,10 @@ document.body.onkeydown = function(event){
     event = event || window.event;
     let keycode = event.charCode || event.keyCode;
 
-    if(keycode === 13){
-        World.add(world, getEmoji());
-    }
-
     if(keycode === 8){
         World.clear(world, true);
+    } else {
+       World.add(world, getEmoji(emotes[keycode]));
     }
 };
 
