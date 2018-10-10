@@ -73,14 +73,21 @@ function getEmoji(url) {
     return body;
 }
 
+let bodies = [];
+
 document.body.onkeydown = function(event){
     event = event || window.event;
     let keycode = event.charCode || event.keyCode;
 
     if(keycode === 8){
         World.clear(world, true);
+    } else if (keycode === 46) {
+       World.remove(world, bodies.shift())
     } else {
-       World.add(world, getEmoji(emotes[keycode]));
+       let body = getEmoji(emotes[keycode])
+       World.add(world, body);
+       bodies.push(body);
+       //console.log(body);
     }
 };
 
