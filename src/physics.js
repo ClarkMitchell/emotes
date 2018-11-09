@@ -78,16 +78,32 @@ let bodies = [];
 document.body.onkeydown = function(event){
     event = event || window.event;
     let keycode = event.charCode || event.keyCode;
+    let modifier = event.shiftKey;
 
-    if(keycode === 8){
+    if (modifier) {
+      if (keycode === 16) {
+        return;
+      } else if (keycode === 8){
         World.clear(world, true);
-    } else if (keycode === 46) {
-       World.remove(world, bodies.shift())
+      } else if (keycode === 46) {
+        World.remove(world, bodies.shift());
+      } else {
+        let animated = document.querySelectorAll('.animated');
+
+        [].forEach.call(animated, function(el) {
+          el.classList.remove("hidden");
+        });
+      }
     } else {
-       let body = getEmoji(emotes[keycode])
-       World.add(world, body);
-       bodies.push(body);
-       //console.log(body);
+      if(keycode === 8){
+        World.clear(world, true);
+      } else if (keycode === 46) {
+        World.remove(world, bodies.shift());
+      } else {
+        let body = getEmoji(emotes[keycode]);
+        World.add(world, body);
+        bodies.push(body);
+      }
     }
 };
 
