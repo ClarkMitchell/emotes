@@ -81,31 +81,40 @@ document.body.onkeydown = function(event){
     let modifier = event.shiftKey;
 
     if (modifier) {
-      if (keycode === 16) {
-        return;
-      } else if (keycode === 8){
-        World.clear(world, true);
-      } else if (keycode === 46) {
-        World.remove(world, bodies.shift());
-      } else {
-        let animated = document.querySelectorAll('.animated');
-
-        [].forEach.call(animated, function(el) {
-          el.classList.remove("hidden");
-        });
-      }
+      renderAnimatedEmotes(keycode);
     } else {
-      if(keycode === 8){
-        World.clear(world, true);
-      } else if (keycode === 46) {
-        World.remove(world, bodies.shift());
-      } else {
-        let body = getEmoji(emotes[keycode]);
-        World.add(world, body);
-        bodies.push(body);
-      }
+      renderPhysicsEmotes(keycode, World, bodies);
     }
 };
+
+function renderPhysicsEmotes(keycode, World, bodies) {
+  if(keycode === 8){
+    World.clear(world, true);
+  } else if (keycode === 46) {
+    World.remove(world, bodies.shift());
+  } else {
+    let body = getEmoji(emotes[keycode]);
+    World.add(world, body);
+    bodies.push(body);
+  }
+}
+
+function renderAnimatedEmotes(keycode) {
+  let animated = document.querySelectorAll('.animated');
+  if (keycode === 16) {
+    return;
+  } else if (keycode === 46) {
+    [].forEach.call(animated, function(el) {
+      el.src = emotes[keycode];
+      el.classList.add("hidden");
+    });
+  } else {
+    [].forEach.call(animated, function(el) {
+      el.src = emotes[keycode];
+      el.classList.remove("hidden");
+    });
+  }
+}
 
 // add mouse control
 var mouse = Mouse.create(render.canvas),

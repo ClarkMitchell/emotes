@@ -43,19 +43,19 @@ export default {
   }
 
   .animated {
-    max-width:100%;
-    height:auto;
+    width: 150px;
+    height: 150px;
   }
 
   .top-left {
     position: absolute;
-    top: 25vh;
-    right: 75vw;
+    top: 20vh;
+    right: 73vw;
   }
 
   .bottom-right {
     position: absolute;
-    bottom: 1vh;
+    bottom: 10vh;
     left: 70vw;
   }
 
