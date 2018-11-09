@@ -78,13 +78,16 @@ let bodies = [];
 document.body.onkeydown = function(event){
     event = event || window.event;
     let keycode = event.charCode || event.keyCode;
-    let modifier = event.shiftKey;
+    let shift = event.shiftKey;
+    let alt = event.altKey;
 
-    if (modifier) {
-      renderAnimatedEmotes(keycode);
+    if (shift) {
+      renderAnimatedEmotes(keycode, 'tossing');
+    } else if (alt) {
+      renderAnimatedEmotes(keycode, 'floating');
     } else {
       renderPhysicsEmotes(keycode, World, bodies);
-    }
+    };
 };
 
 function renderPhysicsEmotes(keycode, World, bodies) {
@@ -99,9 +102,9 @@ function renderPhysicsEmotes(keycode, World, bodies) {
   }
 }
 
-function renderAnimatedEmotes(keycode) {
+function renderAnimatedEmotes(keycode, animation) {
   let animated = document.querySelectorAll('.animated');
-  if (keycode === 16) {
+  if (keycode === 16 || keycode === 18) {
     return;
   } else if (keycode === 46) {
     [].forEach.call(animated, function(el) {
@@ -111,6 +114,9 @@ function renderAnimatedEmotes(keycode) {
   } else {
     [].forEach.call(animated, function(el) {
       el.src = emotes[keycode];
+      el.classList.remove('tossing');
+      el.classList.remove('floating');
+      el.classList.add(animation);
       el.classList.remove("hidden");
     });
   }
