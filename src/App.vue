@@ -2,14 +2,14 @@
   <div id="app">
     <div class="top-left">
       <img
-        class="animated swing infinite hidden"
+        class="animated tossing hidden"
         src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/pile-of-poo_1f4a9.png"
       >
     </div>
     <PhysicsCanvas/>
     <div class="bottom-right">
       <img
-        class="animated swing infinite hidden"
+        class="animated tossing hidden"
         src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/40/pile-of-poo_1f4a9.png"
       >
     </div>
