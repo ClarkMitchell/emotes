@@ -114,8 +114,8 @@ function renderAnimatedEmotes(keycode, animation) {
   } else {
     [].forEach.call(animated, function(el) {
       el.src = emotes[keycode];
-      el.classList.remove('tossing');
-      el.classList.remove('floating');
+      el.classList.remove("tossing");
+      el.classList.remove("floating");
       el.classList.add(animation);
       el.classList.remove("hidden");
     });
